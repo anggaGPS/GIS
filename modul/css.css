@@ -1,0 +1,83 @@
+body{
+	margin:0px;
+	padding:0px;
+	background-color:#cccccc;
+}
+pre {
+	margin:0px;
+	padding:0px;
+}
+td {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+/*------------------------HEADER START--------------------------*/
+.menu {
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#6eb834;
+	text-align:center;
+	font-size:11px;
+	font-weight:bold;
+	padding-top:14px;
+	padding-bottom:12px;
+}
+.menu a { color: #ffffff; text-decoration:none;}
+.menu a:hover { color:#6eb834; text-decoration:none;}
+
+/*------------------------HEADER END--------------------------*/
+/*------------------------BODY START--------------------------*/
+.text {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#858585;
+	text-align:justify;
+}
+.text a { color:#ffffff; text-decoration:none; font-size:10px; font-weight:bold;}
+.text a:hover{ color:#cf4e22; text-decoration:none; }
+.text_2 {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#4c4b4b;
+	text-align:justify;
+	text-decoration:underline;
+}
+.text_2 a { color:#529320; text-decoration:none; font-size:10px; }
+.text_2 a:hover{ color:#cf4e22; text-decoration:none; }
+.heading {
+	font-weight:bold;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#75b933;
+}
+/*------------------------BODY END--------------------------*/
+/*------------------------LEFT START--------------------------*/
+.text_left{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#ffffff;
+	text-align:justify;
+}
+.text_left a { color:#ffffff; text-decoration:none;}
+.text_left a:hover{ color:#ffffff; text-decoration:none; }
+/*------------------------LEFT END--------------------------*/
+/*------------------------FOOTER START--------------------------*/
+.footer {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#ffffff;
+	text-align:center;
+	padding-bottom:12px;
+	padding-top:29px;
+}
+.footer a {	color:#ffffff; text-decoration:none;}
+.footer a:hover { color:#ffffff; text-decoration:none; }
+.copyright {
+	font-size:9px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#4d4e68;
+	padding-bottom:22px;
+}
+.copyright a { color: #fffffff; text-decoration:none; font-weight:bold;}
+.copyright a:hover { color:#ffffff; text-decoration:none;}
+
+/*------------------------FOOTER END--------------------------*/

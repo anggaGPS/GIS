@@ -1,0 +1,201 @@
+<html>
+<head>
+<title>Firmansyah Wahyudiarto & Lida Pratiwi Puteri - GIS</title>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="../dss/jquery-1.4.3.min.js"></script>
+<script type="text/javascript">
+//inisialisasi variabel tampung
+var peta;
+var pertama = 0;
+var jenis = "restoran";
+var namastox = new Array();
+var kodestox = new Array();
+var alamatx = new Array();
+var kecx = new Array();
+var daerahx = new Array();
+var i;
+var url;
+var gambar_tanda;
+//load peta google maps
+function peta_awal(){
+    var bogor = new google.maps.LatLng(-6.589155,106.793032);
+    var petaoption = {
+        zoom: 14,
+        center: bogor,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+    peta = new google.maps.Map(document.getElementById("petaku"),petaoption);
+    google.maps.event.addListener(peta,'click',function(event){
+        kasihtanda(event.latLng);
+    });
+    ambildatabase('awal');
+}
+
+$(document).ready(function(){
+    $("#tombol_simpan").click(function(){
+        var x = $("#x").val();
+        var y = $("#y").val();
+		var nama = $("#nama").val();
+		var kode = $("#kode").val();
+		var alamat = $("#alamat").val();
+		var kec = $("#kec").val();
+		var daerah = $("#daerah").val();
+		
+        //var judul = $("#judul").val();
+        //var des = $("#deskripsi").val();
+		
+        $("#loading").show();
+        $.ajax({
+            url: "simpanlokasi.php",
+            data: "x="+x+"&y="+y+"&nama="+nama+"&kode="+kode+"&alamat="+alamat+"&kec="+kec+"&daerah="+daerah,
+            cache: false,
+            success: function(msg){
+                alert(msg);
+                $("#loading").hide();
+                $("#x").val("");
+                $("#y").val("");
+                $("#nama").val("");
+                $("#kode").val("");
+				$("#alamat").val("");
+				$("#kec").val("");
+                $("#daerah").val("");
+                ambildatabase('akhir');
+            }
+        });
+    });
+    $("#tutup").click(function(){
+        $("#jendelainfo").fadeOut();
+    });
+});
+function kasihtanda(lokasi){
+    set_icon(jenis);
+    tanda = new google.maps.Marker({
+            position: lokasi,
+            map: peta,
+            icon: gambar_tanda
+    });
+    $("#x").val(lokasi.lat());
+    $("#y").val(lokasi.lng());
+
+}
+
+function set_icon(jenisnya){
+    switch(jenisnya){
+        case "restoran":
+            gambar_tanda = 'icon/restaurant.png';
+            break;
+        case "airport":
+            gambar_tanda = 'icon/airport.png';
+            break;
+        case  "masjid":
+            gambar_tanda = 'icon/mosque.png';
+            break;
+    }
+}
+
+function ambildatabase(akhir){
+    if(akhir=="akhir"){
+        url = "ambildata.php?akhir=1";
+    }else{
+        url = "ambildata.php?akhir=0";
+    }
+    $.ajax({
+        url: url,
+        dataType: 'json',
+        cache: false,
+        success: function(msg){
+            for(i=0;i<msg.wilayah.petak.length;i++){
+                namastox[i] = msg.wilayah.petak[i].nama;
+                kodestox[i] = msg.wilayah.petak[i].kode;
+				alamatx[i] = msg.wilayah.petak[i].alamat;
+				kecx[i] = msg.wilayah.petak[i].kec;
+                daerahx[i] = msg.wilayah.petak[i].daerah;
+
+                set_icon(msg.wilayah.petak[i].jenis);
+                var point = new google.maps.LatLng(
+                    parseFloat(msg.wilayah.petak[i].x),
+                    parseFloat(msg.wilayah.petak[i].y));
+                tanda = new google.maps.Marker({
+                    position: point,
+                    map: peta,
+                    icon: gambar_tanda
+                });
+                setinfo(tanda,i);
+
+            }
+        }
+    });
+}
+
+function setjenis(jns){
+    jenis = jns;
+}
+
+function setinfo(petak, nomor){
+    google.maps.event.addListener(petak, 'click', function() {
+        $("#jendelainfo").fadeIn();
+        $("#teksnama").html(namastox[nomor]);
+        $("#teksalamat").html(alamatx[nomor]);
+		$("#tekskode").html(kodestox[nomor]);
+        $("#tekskec").html(kecx[nomor]);
+		$("#teksdaerah").html(daerahx[nomor]);
+    });
+}
+</script>
+<style>
+#jendelainfo{position:absolute;z-index:1000;top:100;
+left:400;background-color:yellow;display:none;}
+</style>
+</head>
+<body onLoad="peta_awal()">
+<center>
+<h1>STO Bogor</h1>
+<table id="jendelainfo" border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#FFCC00" width="300" height="136">
+  <tr>
+    <td width="248" bgcolor="#000000" height="19"><font color=white><span id="teksnama"></span></font></td>
+    <td width="30" bgcolor="#000000" height="19">
+    <p align="center"><font color="#FFFFFF"><a style="cursor:pointer" id="tutup"><b>X</b></a></font></td>
+  </tr>
+  <tr>
+    <td width="290" bgcolor="#FFCC00" height="100" valign="top" colspan="2">
+    <p align="center"><span id="teksalamat"></span></td>
+	<p align="center"><span id="tekskode"></span></td>
+	<p align="center"><span id="teksdaerah"></span></td>
+  </tr>
+</table>
+<table border=0 width=1000>
+<tr><td>
+<div id="petaku" style="width:700px; height:500px"></div>
+</td>
+<td valign=top>
+Pilih jenis lokasi<p>
+<input type=radio checked name=jenis value="restoran" onClick="setjenis(this.value)"><img src="../dss/icon/restaurant.png"> Restoran<br>
+<input type=radio name=jenis value="airport" onClick="setjenis(this.value)"><img src="../dss/icon/airport.png"> Air Port<br>
+<input type=radio name=jenis value="masjid" onClick="setjenis(this.value)"><img src="../dss/icon/mosque.png"> Masjid<br>
+<p>
+X : <input type=text id=x><br>
+Y : <input type=text id=y><p>
+Nama STO:<br>
+<input type=text id="nama" size=30><p>
+Kode STO:<br>
+<input type=text id="kode" size=30><p>
+Alamat:<br>
+<textarea cols=20 rows=8 id="alamat"></textarea><p>
+Kecamatan:<br>
+<select id='kec'>
+<option value='1' SELECTED>Bogor Barat</option>
+<option value='2' SELECTED>Bogor Selatan</option>
+<option value='3' SELECTED>Bogor Tengah</option>
+<option value='4' SELECTED>Bogor imur</option>
+<option value='5' SELECTED>Bogor Utara</option>
+<option value='6' SELECTED>Tanah Sareal</option></select><p>
+Daerah:<br>
+<input type=text id="daerah" value="Bogor" size=30>
+<p>
+<button id="tombol_simpan">Simpan</button>
+<img src="../dss/ajax-loader.gif" style="display:none" id="loading">
+</td>
+</tr>
+</table>
+</body>
+</html>

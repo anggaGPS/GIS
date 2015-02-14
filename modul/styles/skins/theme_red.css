@@ -1,0 +1,150 @@
+.bar_nav ul,
+.side_nav ul,
+.bar_nav ul ul,
+.side_nav ul ul{
+	border-color: #690611;
+}
+
+.bar_nav ul li a,
+.side_nav ul li a{
+	color: #fff;
+	text-shadow: 0px 1px 0px #000;
+}
+
+.bar_nav > ul > li > a{
+	border-top-color: #d32f43;
+	border-right-color: #d32f43;
+	border-left-color: #690611;
+	border-bottom-color: #920616;
+}
+.bar_nav > ul > li.send_right > a{
+	border-left-color: #d32f43;
+}
+
+.bar_nav > ul > li:hover > a{
+	border-top-color: transparent;
+	border-bottom-color: #690611;
+	border-right-color: #690611;
+	border-left-color: #690611;
+}	
+
+.bar_nav ul ul li a,
+.side_nav ul li a{
+	border-top-color: #d32f43;
+	border-bottom-color: #690611;
+}
+
+.side_nav ul li:hover > a,
+.bar_nav ul li ul li:hover > a,
+ul li.openable.active > a{
+	border-bottom-color: #690611;
+	border-top-color: #690611;
+}
+	
+.side_nav ul li:last-child a,
+.side_nav ul li ul li:last-child a,
+.side_nav ul li ul li ul li:last-child a,
+.side_nav ul li ul li ul li ul li:last-child a,
+.side_nav ul li ul li ul li ul li ul li:last-child a,
+.side_nav ul li ul li ul li ul li ul li ul li:last-child a,
+.bar_nav ul li ul li a{
+	border-bottom-color: #920616;
+}
+
+
+.bar_nav ul li ul li:last-child > a:hover,
+.side_nav ul li:last-child > a:hover,
+.side_nav ul li ul li:last-child > a:hover,
+.side_nav ul li ul li ul li:last-child > a:hover,
+.side_nav ul li ul li ul li ul li:last-child > a:hover,
+.side_nav ul li ul li ul li ul li ul li:last-child > a:hover,
+.side_nav ul li ul li ul li ul li ul li ul li:last-child > a:hover{
+	border-bottom-color: #690611;
+}
+
+
+.mega_menu{
+	color: #5a3438;
+	border-color: #690611;
+	background-color: #fff;
+}
+
+li.openable.active > a{
+	color:#fff;
+	border-top: 1px solid #888;
+	border-bottom: 1px solid #666;
+	}
+
+
+li.openable div.accordion a{
+	background: url(../../images/nav_bullet_white.png) 15px no-repeat;
+	}
+
+
+a.minimize,
+.side_nav a.minimize{
+	background-color: #73040d;
+}
+
+#side_nav ul li.openable div.accordion a{
+	background: url(../../images/nav_bullet_white.png) 20px no-repeat;
+	padding-left: 37px;
+	}
+
+#side_nav ul li ul li.openable div.accordion a{
+	background: url(../../images/nav_bullet_white.png) 6px no-repeat;
+	padding-left: 23px;
+	}
+
+li span.icon,
+li a span.icon{
+	background: url(../../images/nav_right_white.png) no-repeat;
+	position: absolute;
+	right:5px;
+	width: 12px;
+	top:11px;
+	display: block;
+	cursor: pointer;
+}
+
+li span.left.icon{
+	background: url(../../images/nav_left_white.png) no-repeat;
+}
+li.openable span.icon,
+#side_nav ul li.toggle span.icon{
+	background: url(../../images/nav_plus_white.png) no-repeat;
+}
+li.openable.active span.icon,
+li.openable.active span.icon{
+	background: url(../../images/nav_minus_white.png) no-repeat;
+}
+.nav_down > ul > li > a > span.icon,
+.nav_down li.has_mega_menu span.icon{
+	background: url(../../images/nav_down_white.png) no-repeat;
+}
+.nav_up > ul > li > a > span.icon,
+.nav_up li.has_mega_menu span.icon{
+	background: url(../../images/nav_up_white.png) no-repeat;
+}
+	
+.grad_blue,
+.bar_nav ul a,
+.side_nav ul a,
+.bar_nav ul,
+.side_nav ul{
+	background: #a01c30; /* old browsers */
+	background: -moz-linear-gradient(top, #a01c30 0%, #920616 100%); /* firefox */
+	
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a01c30), color-stop(100%,#920616)); /* webkit */
+	
+}
+
+.grad_blue:hover,
+.bar_nav ul li:hover > a,
+.side_nav ul li:hover > a,
+ul li.openable.active > a{
+	background: #7f101c; /* old browsers */
+	background: -moz-linear-gradient(top, #7f101c 0%, #73040d 100%); /* firefox */
+	
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7f101c), color-stop(100%,#73040d)); /* webkit */
+}

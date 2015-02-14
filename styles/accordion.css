@@ -1,0 +1,63 @@
+li.openable{
+	position: relative;
+}
+li.openable.active > a{
+	color:#fff;
+	text-shadow: none;
+	border-top: 1px solid #888;
+	border-bottom: 1px solid #666;
+	}
+
+li.openable div.drawer{
+	color:#666;
+	border-top: 0px solid #fff;
+	font-weight: normal;
+	
+}
+
+li.openable div.drawer a{
+	background: url(../images/nav_bullet_dark.png) 15px no-repeat;
+	padding-left: 30px;
+	font-weight: normal;
+	}
+
+li.openable div.drawer {
+}
+
+li.openable.active a{
+	
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+ul.accordion > li.openable.active:first-child > a{	
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+ul.accordion > li.openable:last-child div.drawer a:last-child,
+ul.accordion > li.openable:last-child div.drawer {	
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	
+	border-bottom: none;
+}
+
+
+#side_nav ul li.openable div.drawer a{
+	background: url(../images/nav_bullet.png) 20px no-repeat;
+	padding-left: 37px;
+	}
+	
+#side_nav ul li ul li.openable div.drawer a{
+	background: url(../images/nav_bullet.png) 6px no-repeat;
+	padding-left: 23px;
+	}

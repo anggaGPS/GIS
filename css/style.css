@@ -1,0 +1,23 @@
+* {
+    font-family: verdana;
+}
+#container {
+    width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -khtml-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 0 25px #000000;
+}
+#menu {
+    text-align: center;
+}
+#menu a {
+    text-decoration: none;
+    color: blue;
+}
+#menu a:hover {
+    color: red;
+}

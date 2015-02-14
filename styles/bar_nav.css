@@ -1,0 +1,245 @@
+a.minimize{
+	background-color: #000;
+	display: block;
+	height: 20px;
+	width:26px;
+	background: black url('../images/open_close_vertical.png') no-repeat top;
+}
+
+
+#top_nav a.minimize{
+	position: absolute;
+	left:7px;
+	bottom:-20px;
+	z-index: 20;
+	}
+	
+#top_nav a.minimize:hover{
+	background-position: right;
+}
+#top_nav a.minimize_closed:hover{
+	background-position: left;
+}
+
+#top_nav a.minimize span, 
+#top_nav a.minimize_closed span,
+#footer a.minimize span,
+#footer a.minimize_closed span
+{
+	display: none;
+}
+
+#top_nav.closed{
+	margin-top: -34px;
+	}
+
+#footer_wrapper.closed{
+	bottom: -34px;
+	}
+
+#footer a.minimize{
+	position: absolute;
+	left:7px;
+	top:-18px;
+	}
+#footer a.minimize:hover{
+	background-position: left;
+}
+#footer a.minimize_closed:hover{
+	background-position: right;
+}
+	
+.bar_nav{
+	position: relative;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 36px;
+	color: #FFF;
+	text-align: center;
+}
+.bar_nav > ul{
+	color:#fff;
+	}
+
+	
+.bar_nav ul{ margin: 0; padding: 0; list-style: none; position: relative; }
+
+.bar_nav ul ul {
+	width: 160px;  /* Sub Menu Width (set if you want to frce width of items)*/
+	margin: 0;
+	list-style: none;
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	padding-top: 0px;
+	margin-top: 0px;
+}
+
+.bar_nav > ul > li > ul{
+	padding-top: 0px;
+	margin-top: 0;
+}
+
+.nav_up ul ul{
+	bottom:100%;
+	top:auto;
+	margin-bottom: 0px;
+}
+.nav_up > ul >li > ul{
+	padding-bottom: 0px;
+}
+
+.nav_up ul li ul li:last-child > ul{
+	margin-bottom: -1px;
+}
+
+.bar_nav ul ul ul,
+.bar_nav ul ul ul ul,
+.bar_nav ul ul ul ul ul,
+.bar_nav ul ul ul ul ul ul{ 
+	top: 0; 
+	left: 100%;
+	padding-left:0px;
+}
+
+.nav_up ul ul ul,
+.nav_up ul ul ul ul,
+.nav_up ul ul ul ul ul,
+.nav_up ul ul ul ul ul ul{ 
+	top:auto;
+	bottom: 0; 
+	left: 100%;
+}
+
+	
+	
+	
+.bar_nav ul ul ul.slide_left,
+.bar_nav ul ul ul ul.slide_left,
+.bar_nav ul ul ul ul ul.slide_left{
+	top: 0; 
+	left:auto;
+	right:100%;
+	padding-right:0px;
+}
+
+.nav_up ul ul ul.slide_left,
+.nav_up ul ul ul ul.slide_left,
+.nav_up ul ul ul ul ul.slide_left{
+	bottom: 0;
+	top:auto; 
+	left:auto;
+	right:100%;
+}
+
+.bar_nav ul li { 
+	float: left;
+	display: inline;
+	position: relative; 
+}
+
+.bar_nav ul ul li { 
+	width: 100%;
+	display: block; 
+}
+
+/* Root Menu */
+.bar_nav ul a {
+	padding: 0 20px;
+	
+	display: block;
+	font: bold 12px sans-serif;
+	text-decoration: none;
+	white-space: nowrap;
+	line-height: 30px;
+}
+
+.bar_nav ul a img{
+	float: left;
+	margin: 5px 5px 0 -10px;
+	position: relative;
+	top:-2px;
+}
+
+
+
+/* Root Menu Hover Persistence */
+.bar_nav ul a:hover,
+.bar_nav ul li:hover a,
+.bar_nav ul li.iehover a {
+}
+
+/* 2nd Menu */
+.bar_nav ul li:hover li a,
+.bar_nav ul li.iehover li a {
+	float: none;
+}
+
+
+.bar_nav ul ul{
+	z-index: 3;}
+.bar_nav ul ul ul{
+	z-index: 4;}
+.bar_nav ul ul ul ul{
+	z-index: 5;}
+.bar_nav ul ul ul ul ul{
+	z-index: 6;}
+.bar_nav ul ul ul ul ul ul{
+	z-index: 7;}
+.bar_nav ul ul ul ul ul ul ul{
+	z-index: 7;}
+
+
+/* Hover Function - Keep these at the bottom guys! */
+.bar_nav ul li:hover ul ul,
+.bar_nav ul li:hover ul ul ul,
+.bar_nav ul li:hover ul ul ul ul,
+.bar_nav ul li.iehover ul ul,
+.bar_nav ul li.iehover ul ul ul,
+.bar_nav ul li.iehover ul ul ul ul { 
+	display: none; 
+}
+
+.bar_nav ul li:hover ul,
+.bar_nav ul ul li:hover ul,
+.bar_nav ul ul ul li:hover ul,
+.bar_nav ul ul ul ul li:hover ul,
+.bar_nav ul li.iehover ul,
+.bar_nav ul ul li.iehover ul,
+.bar_nav ul ul ul li.iehover ul,
+.bar_nav ul ul ul ul li.iehover ul { 
+	display: block;
+}
+
+
+/* Round corners
+---------------------------------------------------------------------------------------------------- */
+
+
+
+
+.bar_nav > ul > li > ul > li:first-child > a,
+.bar_nav > ul > li > ul > li > ul > li:first-child > a,
+.bar_nav > ul > li > ul > li > ul > li > ul > li:first-child > a,
+.bar_nav > ul > li > ul > li > ul > li > ul > li > ul > li:first-child > a{
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.bar_nav > ul > li > ul > li:last-child > a,
+.bar_nav > ul > li > ul > li > ul > li:last-child > a,
+.bar_nav > ul > li > ul > li > ul > li > ul > li:last-child > a,
+.bar_nav > ul > li > ul > li > ul > li > ul > li > ul > li:last-child > a,
+.bar_nav > ul > li > ul > li > ul > li > ul > li > ul > li > ul > li:last-child > a{
+	-webkit-border-bottom-right-radius: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 3px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}

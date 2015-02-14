@@ -1,0 +1,4 @@
+#nav { position: relative; z-index: 5; width: 820px; border-bottom: none; }
+#nav li:hover ul { display: block; }
+#nav li ul li a:hover { color: #fff; }
+#footer { margin-top: 0px;}
